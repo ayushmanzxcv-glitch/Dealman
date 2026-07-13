@@ -1,514 +1,1117 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEALMAN | Target. Connect. Grow.</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Google Fonts: Space Grotesk (Tech Heading) & Inter (Clean Body) -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
-        
-        :root {
-            --primary-gold: #fbbf24;
-            --primary-gold-dark: #d97706;
-            --bg-dark: #020617;
-            --bg-card: rgba(15, 23, 42, 0.6);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dealman — Smart Solutions. Real Results. Digital Growth, Branding & Automation</title>
+<meta name="description" content="Dealman helps businesses grow through premium websites, branding, digital marketing, automation and direct exclusive encrypted leads. Smart solutions. Real results.">
+<meta name="keywords" content="Dealman, digital marketing, website development, branding, business automation, growth strategy, business leads">
+<meta property="og:title" content="Dealman — Smart Solutions. Real Results.">
+<meta property="og:description" content="We don't just build digital presence. We build business growth. Digital marketing, branding, premium websites, automation, growth strategy and direct exclusive encrypted leads.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --black:#08080a;
+  --graphite:#141417;
+  --graphite-2:#1c1d21;
+  --line:rgba(230,220,200,0.12);
+  --gold:#c9a24a;
+  --gold-light:#eccf87;
+  --gold-deep:#8a6a24;
+  --silver:#c9ccd2;
+  --off-white:#f0ece2;
+  --grad-gold:linear-gradient(120deg,#f6e2a8 0%,#d9b45f 35%,#a3792a 70%,#f6e2a8 100%);
+  --grad-gold-static:linear-gradient(135deg,#eccf87,#c9a24a 55%,#8a6a24);
+  --grad-gold-text:linear-gradient(135deg,#eccf87,#c9a24a 55%,#8a6a24);
+  --font-display:'Space Grotesk',sans-serif;
+  --font-accent:'Fraunces',serif;
+  --font-body:'Inter',sans-serif;
+  --ease:cubic-bezier(.16,.8,.24,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+}
+body{
+  background:var(--black);
+  color:var(--off-white);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+::selection{background:var(--gold);color:var(--black);}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--gold);color:#000;padding:10px 18px;z-index:9999;font-weight:600;}
+.skip-link:focus{left:10px;top:10px;}
+:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: #f8fafc;
-        }
+.wrap{max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);}
+.eyebrow{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--gold);}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;letter-spacing:-.02em;line-height:1.02;text-transform:uppercase;}
+.gold{background:var(--grad-gold-text);-webkit-background-clip:text;background-clip:text;color:transparent;}
+em.serif{font-family:var(--font-accent);font-style:italic;font-weight:500;text-transform:none;letter-spacing:0;}
+.section{position:relative;padding:min(14vh,140px) 0;border-top:1px solid var(--line);}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);
+  text-transform:uppercase;font-size:.78rem;letter-spacing:.14em;padding:16px 30px;
+  border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--off-white);
+  transition:all .4s var(--ease);position:relative;overflow:hidden;
+}
+.btn:hover{border-color:var(--gold);color:var(--black);}
+.btn::before{content:"";position:absolute;inset:0;background:var(--grad-gold-static);transform:translateX(-101%);transition:transform .4s var(--ease);z-index:-1;}
+.btn:hover::before{transform:translateX(0);}
+.btn-primary{background:var(--grad-gold-static);color:#141008;border:none;font-weight:600;}
+.btn-primary:hover{color:#141008;filter:brightness(1.08);}
+.btn-primary::before{display:none;}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
+.grid-bg{
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;
+}
+.noise::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
-        .font-tech {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+/* ============ SCROLL PROGRESS RAIL ============ */
+.rail{position:fixed;left:18px;top:0;bottom:0;width:2px;z-index:60;background:rgba(255,255,255,.06);display:none;}
+.rail-fill{width:100%;background:var(--grad-gold-static);height:0%;transform-origin:top;}
+@media(min-width:1000px){.rail{display:block;}}
 
-        /* High-Tech Grid Background */
-        .tech-grid {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-        }
+/* ============ LOADER ============ */
+#loader{position:fixed;inset:0;background:#000;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease;}
+#loader.done{opacity:0;visibility:hidden;pointer-events:none;}
+.loader-line{width:1px;height:0;background:var(--grad-gold-static);animation:loaderLine 1s var(--ease) forwards;}
+@keyframes loaderLine{to{height:60px;}}
+.loader-word{font-family:var(--font-display);font-size:clamp(2rem,6vw,3.4rem);letter-spacing:.08em;margin-top:18px;opacity:0;animation:loaderFade .5s ease .55s forwards;}
+.loader-tag{font-family:var(--font-display);font-size:.75rem;letter-spacing:.35em;color:var(--gold);margin-top:10px;opacity:0;animation:loaderFade .5s ease .95s forwards;}
+@keyframes loaderFade{to{opacity:1;}}
 
-        /* Glassmorphism Classes */
-        .glass-panel {
-            background: var(--bg-card);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
+/* ============ CURSOR ============ */
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9998;border-radius:50%;transform:translate(-50%,-50%);}
+.cursor-dot{width:6px;height:6px;background:var(--gold-light);}
+.cursor-ring{width:34px;height:34px;border:1px solid var(--gold);transition:width .25s,height .25s,opacity .25s,border-color .25s;}
+.cursor-ring.magnetic{width:54px;height:54px;background:rgba(201,162,74,.1);}
+body.touch .cursor-dot,body.touch .cursor-ring{display:none;}
 
-        .gold-text-gradient {
-            background: linear-gradient(to right, #fde047, #f59e0b);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+/* ============ NAV ============ */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:all .5s var(--ease);}
+header.nav.scrolled{padding:12px 0;background:rgba(10,10,11,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.15rem;letter-spacing:.03em;}
+.logo svg{width:30px;height:30px;}
+.logo .d-part{color:var(--off-white);}
+.logo .man-part{color:var(--gold);}
+.logo-tag{display:block;font-size:.55rem;letter-spacing:.22em;color:var(--silver);font-family:var(--font-body);text-transform:uppercase;margin-top:2px;}
+nav.links{display:none;gap:34px;font-family:var(--font-display);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;}
+nav.links a{position:relative;opacity:.85;}
+nav.links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease);}
+nav.links a:hover::after,nav.links a.active::after{width:100%;}
+@media(min-width:960px){nav.links{display:flex;}}
+.nav-cta{display:none;}
+@media(min-width:960px){.nav-cta{display:inline-flex;}}
+.hamburger{display:flex;flex-direction:column;gap:5px;width:30px;background:none;border:none;padding:4px;}
+.hamburger span{height:1.5px;background:var(--off-white);width:100%;transition:.35s var(--ease);}
+@media(min-width:960px){.hamburger{display:none;}}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+#mobileMenu{position:fixed;inset:0;background:#070708;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+  transform:translateY(-100%);transition:transform .5s var(--ease);}
+#mobileMenu.open{transform:translateY(0);}
+#mobileMenu a{font-family:var(--font-display);font-size:1.6rem;text-transform:uppercase;letter-spacing:.05em;}
 
-        .gold-border-glow {
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
-        }
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg .img-layer{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,10,.55),rgba(8,8,10,.92) 80%),radial-gradient(circle at 70% 30%,rgba(201,162,74,.16),transparent 60%);}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.55;}
+.hero-content{position:relative;z-index:2;padding-top:120px;}
+.hero-small{font-family:var(--font-display);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-light);margin-bottom:22px;opacity:0;animation:fadeUp 1s var(--ease) .3s forwards;}
+.hero h1{font-size:clamp(2.4rem,6.4vw,5.4rem);}
+.hero h1 span.line{display:block;overflow:hidden;}
+.hero h1 span.line b{display:block;transform:translateY(110%);animation:fadeUp .9s var(--ease) forwards;font-weight:600;}
+.hero h1 span.line:nth-child(1) b{animation-delay:.45s;}
+.hero h1 span.line:nth-child(2) b{animation-delay:.55s;}
+.hero h1 span.line:nth-child(3) b{animation-delay:.75s;}
+.hero h1 span.line:nth-child(4) b{animation-delay:.85s;}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+.hero-sub{margin-top:26px;max-width:520px;color:var(--silver);font-size:1.02rem;opacity:0;animation:fadeUp 1s var(--ease) 1.05s forwards;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:38px;opacity:0;animation:fadeUp 1s var(--ease) 1.2s forwards;}
+.hero-scroll{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--font-display);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--silver);z-index:2;opacity:0;animation:fadeUp 1s var(--ease) 1.5s forwards;}
+.mouse-ic{width:22px;height:34px;border:1px solid var(--silver);border-radius:12px;position:relative;}
+.mouse-ic::before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:6px;background:var(--gold-light);border-radius:2px;animation:scrollDot 1.6s infinite;}
+@keyframes scrollDot{0%{opacity:1;top:6px;}70%{opacity:0;top:18px;}100%{opacity:0;top:6px;}}
 
-        /* Slide container for full-screen feel */
-        .slide-section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            padding: 5rem 1rem;
-        }
+/* growth arrow signature svg */
+.growth-mark{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:min(38vw,420px);z-index:1;opacity:.9;}
+@media(max-width:760px){.growth-mark{width:60vw;opacity:.35;right:20%;}}
+.growth-mark path{fill:none;stroke:url(#goldStroke);stroke-width:2;stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.6s var(--ease) .5s forwards;}
+.growth-mark .chev{fill:url(#goldStroke);opacity:0;animation:fadeUp 1s ease 2s forwards;}
+@keyframes draw{to{stroke-dashoffset:0;}}
 
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        /* Custom Scrollbar for sleek look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #020617; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #f59e0b; 
-        }
-    </style>
+/* ============ JOURNEY (sticky scroll story) ============ */
+.journey{position:relative;background:var(--graphite);}
+.journey-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden;}
+.journey-track{position:relative;height:800vh;}
+.journey-bg{position:absolute;inset:0;overflow:hidden;background:#141417;}
+.journey-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;filter:grayscale(.2) contrast(1.05);transition:opacity .9s var(--ease);}
+.journey-wash{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,10,.45),rgba(8,8,10,.88) 78%);}
+.journey-tint{position:absolute;inset:0;mix-blend-mode:screen;transition:background 1s var(--ease);}
+.journey-inner{position:relative;z-index:2;width:100%;}
+.journey-num{font-family:var(--font-display);font-size:clamp(6rem,16vw,11rem);color:transparent;-webkit-text-stroke:1px var(--gold);line-height:1;opacity:.5;}
+.journey-title{font-size:clamp(2rem,5.5vw,4rem);margin-top:6px;}
+.journey-list{position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);display:none;flex-direction:column;gap:14px;font-family:var(--font-display);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;}
+@media(min-width:800px){.journey-list{display:flex;}}
+.journey-list li{opacity:.35;transition:opacity .4s,color .4s;display:flex;gap:10px;align-items:center;}
+.journey-list li.active{opacity:1;color:var(--gold-light);}
+.journey-list li span{width:6px;height:6px;border-radius:50%;background:currentColor;}
+.journey-final{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--black);opacity:0;transition:opacity .8s var(--ease);z-index:3;}
+.journey-final.show{opacity:1;}
+.journey-final h2{font-size:clamp(2.4rem,7vw,5rem);}
+
+/* ============ ABOUT ============ */
+.about-grid{display:grid;grid-template-columns:1fr;gap:60px;align-items:center;}
+@media(min-width:900px){.about-grid{grid-template-columns:1.05fr .95fr;}}
+.about-visual{position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;border:1px solid var(--line);background:var(--graphite);}
+.about-visual svg{position:absolute;inset:0;width:100%;height:100%;}
+.about h2{font-size:clamp(1.9rem,4.4vw,3.2rem);margin-bottom:22px;}
+.about p{color:var(--silver);max-width:520px;margin-bottom:16px;}
+
+/* ============ BRAND STATEMENT ============ */
+.statement{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;background:radial-gradient(circle at 50% 30%,rgba(201,162,74,.08),transparent 60%);}
+.statement p{font-size:clamp(1.5rem,4.6vw,3.2rem);font-family:var(--font-display);text-transform:uppercase;opacity:.18;transition:opacity .8s var(--ease),color .8s;}
+.statement p.visible{opacity:1;}
+.statement p.final{color:var(--gold-light);margin-top:20px;font-family:var(--font-accent);font-style:italic;text-transform:none;font-size:clamp(1.3rem,3.4vw,2rem);}
+
+/* ============ SERVICES ============ */
+.services-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:60px;}
+@media(min-width:700px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1100px){.services-grid{grid-template-columns:repeat(3,1fr);}}
+.service-card{background:var(--black);padding:0;position:relative;transition:background .4s;display:flex;flex-direction:column;overflow:hidden;}
+.service-card:hover{background:var(--graphite);}
+.service-card .card-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(150deg,#22232a,#141417);}
+.service-card .card-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) brightness(.7);transition:transform .7s var(--ease),filter .5s;}
+.service-card:hover .card-media img{transform:scale(1.07);filter:grayscale(0) brightness(.95);}
+.service-card .card-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,10,.05),rgba(8,8,10,.92));}
+.service-card .card-body{padding:30px 30px 34px;flex:1;display:flex;flex-direction:column;}
+.service-card .num{font-family:var(--font-display);color:var(--gold);font-size:.85rem;letter-spacing:.1em;}
+.service-card h3{font-size:1.3rem;margin:18px 0 12px;}
+.service-card p{color:var(--silver);font-size:.92rem;flex:1;}
+.service-card .arrow{margin-top:18px;font-family:var(--font-display);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold-light);opacity:0;transform:translateX(-6px);transition:.35s var(--ease);}
+.service-card:hover .arrow{opacity:1;transform:translateX(0);}
+.service-card.highlight{background:linear-gradient(160deg,rgba(201,162,74,.14),rgba(20,20,23,1));border:1px solid var(--gold-deep);}
+.service-card.highlight h3{color:var(--gold-light);}
+
+/* ============ LEADS ============ */
+.leads{background:var(--graphite);position:relative;overflow:hidden;}
+.leads-media{position:absolute;inset:0;z-index:0;}
+.leads-media img{width:100%;height:100%;object-fit:cover;opacity:.28;filter:grayscale(.3);}
+.leads-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,23,.55),rgba(20,20,23,.95));}
+.leads .wrap{position:relative;z-index:1;}
+.leads-flow{display:grid;grid-template-columns:1fr;gap:26px;margin-top:60px;}
+@media(min-width:900px){.leads-flow{grid-template-columns:repeat(6,1fr);gap:0;}}
+.flow-step{text-align:center;position:relative;padding:0 6px;}
+.flow-step .ic{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;border:1px solid var(--gold-deep);display:flex;align-items:center;justify-content:center;background:var(--black);}
+.flow-step span{font-family:var(--font-display);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);}
+.flow-step::after{content:"→";position:absolute;right:-4px;top:20px;color:var(--gold);opacity:.5;}
+@media(max-width:899px){.flow-step::after{content:"↓";left:50%;top:auto;bottom:-22px;right:auto;transform:translateX(-50%);}}
+.flow-step:last-child::after{content:none;}
+.leads-cta{margin-top:56px;display:flex;justify-content:center;}
+
+/* ============ WORK / PORTFOLIO ============ */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:36px 0 40px;}
+.filter-btn{font-family:var(--font-display);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--silver);transition:.3s;}
+.filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold-light);}
+.work-grid{display:grid;grid-template-columns:1fr;gap:22px;}
+@media(min-width:720px){.work-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1100px){.work-grid{grid-template-columns:repeat(6,1fr);}}
+.work-card{grid-column:span 6;position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:var(--graphite);cursor:pointer;}
+@media(min-width:720px){.work-card{grid-column:span 3;}}
+@media(min-width:1100px){.work-card.large{grid-column:span 4;}.work-card.small{grid-column:span 2;}}
+.work-card .thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(150deg,#22232a,#141417);}
+.work-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease),filter .5s;filter:grayscale(.25) brightness(.85);}
+.work-card:hover .thumb img{transform:scale(1.07);filter:grayscale(0) brightness(1);}
+.work-card .thumb .veil{position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,8,10,.9),transparent 55%);}
+.work-card .info{padding:20px 22px 24px;}
+.work-card .cat{font-family:var(--font-display);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+.work-card h4{font-size:1.15rem;margin-top:8px;text-transform:none;font-weight:600;letter-spacing:0;}
+.work-card .desc{color:var(--silver);font-size:.85rem;margin-top:6px;}
+.work-card .view{margin-top:14px;font-family:var(--font-display);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);opacity:0;transform:translateY(6px);transition:.3s var(--ease);}
+.work-card:hover .view{opacity:1;transform:none;}
+
+#projectModal{position:fixed;inset:0;background:rgba(4,4,5,.9);backdrop-filter:blur(6px);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease);}
+#projectModal.open{opacity:1;pointer-events:auto;}
+.modal-box{max-width:720px;width:100%;background:var(--graphite);border:1px solid var(--line);border-radius:10px;overflow:hidden;transform:translateY(16px);transition:transform .4s var(--ease);}
+#projectModal.open .modal-box{transform:none;}
+.modal-box img{width:100%;aspect-ratio:16/9;object-fit:cover;}
+.modal-body{padding:28px 30px 32px;}
+.modal-close{position:absolute;top:20px;right:26px;background:none;border:1px solid var(--line);color:var(--off-white);width:38px;height:38px;border-radius:50%;font-size:1.1rem;}
+
+/* ============ WEBSITE SHOWCASE ============ */
+.device-tabs{display:flex;gap:10px;margin:36px 0;}
+.mock-wrap{display:flex;justify-content:center;padding:20px 0 10px;}
+.mockup{background:var(--graphite-2);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:width .5s var(--ease),height .5s var(--ease);position:relative;box-shadow:0 40px 90px -30px rgba(60,45,10,.28);}
+.mockup .bar{height:26px;background:#0f0f11;display:flex;align-items:center;gap:6px;padding:0 12px;}
+.mockup .bar span{width:7px;height:7px;border-radius:50%;background:#3a3a3f;}
+.mockup .screen{background:linear-gradient(160deg,#1b1c20,#0d0d0f);height:calc(100% - 26px);padding:22px;display:flex;flex-direction:column;gap:12px;}
+.mockup .fake-nav{display:flex;justify-content:space-between;font-family:var(--font-display);font-size:.6rem;letter-spacing:.1em;color:var(--silver);}
+.mockup .fake-hero{position:relative;flex:1;border-radius:6px;overflow:hidden;background:linear-gradient(135deg,rgba(201,162,74,.18),rgba(255,255,255,.03));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:.85rem;color:var(--gold-light);text-align:center;padding:12px;}
+.mockup .fake-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4;filter:grayscale(.2);}
+.mockup .fake-hero span{position:relative;z-index:1;background:rgba(8,8,10,.55);padding:8px 14px;border-radius:4px;}
+.mockup.desktop{width:min(78vw,760px);height:440px;}
+.mockup.tablet{width:min(60vw,420px);height:520px;}
+.mockup.mobile{width:min(42vw,260px);height:520px;}
+
+/* ============ PROCESS ============ */
+.process-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:60px;}
+@media(min-width:960px){.process-grid{grid-template-columns:1.4fr 1fr;align-items:start;}}
+.process-visual{position:relative;aspect-ratio:3/4;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(150deg,#22232a,#141417);}
+@media(min-width:960px){.process-visual{position:sticky;top:120px;}}
+.process-visual img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25) brightness(.8);}
+.process-list{margin-top:0;display:flex;flex-direction:column;}
+.process-item{display:grid;grid-template-columns:70px 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line);align-items:baseline;}
+.process-item:last-child{border-bottom:1px solid var(--line);}
+.process-item .pnum{font-family:var(--font-display);color:var(--gold);font-size:1.1rem;}
+.process-item h3{font-size:1.25rem;text-transform:none;font-weight:600;}
+.process-item p{color:var(--silver);margin-top:6px;max-width:560px;font-size:.92rem;}
+
+/* ============ WHY ============ */
+.why-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px;}
+.why-banner{position:relative;aspect-ratio:21/8;border-radius:6px;overflow:hidden;margin-top:36px;background:linear-gradient(150deg,#22232a,#141417);}
+.why-banner img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) brightness(.7);}
+.why-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,10,.75),transparent 60%);}
+@media(min-width:700px){.why-grid{grid-template-columns:repeat(3,1fr);}}
+.why-card{background:var(--black);padding:36px 28px;}
+.why-card h3{font-size:1.05rem;color:var(--gold-light);margin-bottom:8px;}
+.why-card p{color:var(--silver);font-size:.85rem;}
+
+/* ============ BEFORE/AFTER ============ */
+.ba-wrap{position:relative;max-width:900px;margin:60px auto 0;aspect-ratio:16/10;border-radius:10px;overflow:hidden;border:1px solid var(--line);user-select:none;}
+.ba-panel{position:absolute;inset:0;padding:34px;display:flex;flex-direction:column;justify-content:center;}
+.ba-before{background:linear-gradient(160deg,#1c1c1e,#0c0c0d);position:relative;}
+.ba-after{background:linear-gradient(160deg,#2a2210,#141008);position:relative;}
+.ba-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.ba-before img{opacity:.18;filter:grayscale(1) brightness(.6);}
+.ba-after img{opacity:.3;filter:grayscale(.1) brightness(.85);}
+.ba-panel > *:not(img){position:relative;z-index:1;}
+.ba-after-wrap{position:absolute;inset:0;clip-path:inset(0 50% 0 0);transition:clip-path .05s linear;}
+.ba-wrap h4{font-family:var(--font-display);letter-spacing:.12em;font-size:.78rem;margin-bottom:16px;}
+.ba-before h4{color:var(--silver);}
+.ba-after h4{color:var(--gold-light);}
+.ba-wrap ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:.92rem;}
+.ba-before li{color:#8b8b8f;}
+.ba-after li{color:var(--off-white);}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--gold);cursor:ew-resize;}
+.ba-handle::after{content:"⇔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;background:var(--gold);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.ba-slider{width:100%;max-width:900px;margin:20px auto 0;display:block;-webkit-appearance:none;appearance:none;height:2px;background:var(--line);}
+.ba-slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);}
+
+/* ============ CLIENTS ============ */
+.clients-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:50px;}
+@media(min-width:700px){.clients-grid{grid-template-columns:repeat(4,1fr);}}
+.client-card{background:var(--black);padding:34px 10px;text-align:center;color:#5a5a5e;font-family:var(--font-display);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;}
+
+/* ============ CTA ============ */
+.cta-full{position:relative;min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+.cta-full .cta-media{position:absolute;inset:0;z-index:0;}
+.cta-full .cta-media img{width:100%;height:100%;object-fit:cover;opacity:.22;filter:grayscale(.4);}
+.cta-full .cta-media::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 20%,rgba(201,162,74,.18),transparent 60%),linear-gradient(180deg,rgba(8,8,10,.75),rgba(8,8,10,.92));}
+.cta-full .wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
+.cta-full h2{font-size:clamp(2.2rem,7vw,5rem);}
+.cta-full p{color:var(--silver);max-width:520px;margin:20px 0 34px;}
+.cta-btns{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;}
+
+/* ============ CONTACT / FORM ============ */
+.contact-grid{display:grid;grid-template-columns:1fr;gap:56px;}
+@media(min-width:960px){.contact-grid{grid-template-columns:.9fr 1.1fr;}}
+.contact-info h2{font-size:clamp(1.9rem,4.4vw,3rem);}
+.contact-line{display:flex;gap:14px;align-items:flex-start;margin-top:22px;}
+.contact-line .lbl{font-family:var(--font-display);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);min-width:90px;}
+.contact-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
+form#enquiryForm{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+form#enquiryForm .full{grid-column:1/-1;}
+form#enquiryForm label{display:block;font-family:var(--font-display);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);margin-bottom:8px;}
+form#enquiryForm input,form#enquiryForm select,form#enquiryForm textarea{
+  width:100%;background:var(--graphite);border:1px solid var(--line);color:var(--off-white);
+  padding:13px 14px;border-radius:4px;font-family:var(--font-body);font-size:.92rem;
+}
+form#enquiryForm input:focus,form#enquiryForm select:focus,form#enquiryForm textarea:focus{border-color:var(--gold);}
+.form-msg{grid-column:1/-1;font-size:.85rem;color:var(--gold-light);min-height:1.2em;}
+@media(max-width:640px){form#enquiryForm{grid-template-columns:1fr;}}
+
+/* ============ FOOTER ============ */
+footer{background:var(--black);border-top:1px solid var(--line);padding:70px 0 30px;}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:44px;}
+@media(min-width:800px){.footer-grid{grid-template-columns:1.3fr 1fr 1fr;}}
+footer h4{font-family:var(--font-display);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:10px;color:var(--silver);font-size:.9rem;}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin-top:60px;padding-top:24px;border-top:1px solid var(--line);font-size:.78rem;color:#6a6a6e;}
+#backToTop{background:none;border:1px solid var(--line);color:var(--off-white);padding:10px 18px;border-radius:999px;font-family:var(--font-display);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+
+/* ============ FLOATING WHATSAPP ============ */
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:90;width:58px;height:58px;border-radius:50%;background:#1fae5b;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:pulseWa 2.4s infinite;}
+@keyframes pulseWa{0%{box-shadow:0 0 0 0 rgba(31,174,91,.5);}70%{box-shadow:0 0 0 16px rgba(31,174,91,0);}100%{box-shadow:0 0 0 0 rgba(31,174,91,0);}}
+.wa-float svg{width:28px;height:28px;fill:#fff;}
+
+.img-fallback{background:linear-gradient(150deg,#22232a,#141417) !important;}
+
+/* ============ FUTURISTIC SCROLL BACKGROUND ============ */
+#bgFx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;}
+#bgFx .grid-layer{position:absolute;inset:-30% -30%;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:72px 72px;opacity:.55;will-change:transform;}
+#bgFx .orb{position:absolute;border-radius:50%;filter:blur(70px);will-change:transform;}
+#bgFx .orb1{width:460px;height:460px;top:-140px;left:-120px;background:radial-gradient(circle,rgba(201,162,74,.5),transparent 70%);}
+#bgFx .orb2{width:560px;height:560px;top:70vh;right:-180px;background:radial-gradient(circle,rgba(169,130,47,.42),transparent 70%);}
+#bgFx .orb3{width:420px;height:420px;top:160vh;left:12vw;background:radial-gradient(circle,rgba(230,205,140,.4),transparent 70%);}
+#bgFx .orb4{width:480px;height:480px;top:260vh;right:8vw;background:radial-gradient(circle,rgba(201,162,74,.4),transparent 70%);}
+#bgFx .line-node{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:.6;box-shadow:0 0 12px 2px rgba(169,130,47,.5);animation:nodePulse 3.2s ease-in-out infinite;}
+@keyframes nodePulse{0%,100%{opacity:.3;transform:scale(1);}50%{opacity:.9;transform:scale(1.6);}}
+@media(prefers-reduced-motion:reduce){#bgFx{display:none;}}
+@media(max-width:700px){#bgFx .orb{filter:blur(50px);opacity:.5;}}
+</style>
 </head>
-<body class="antialiased overflow-x-hidden selection:bg-amber-500 selection:text-black">
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- FIXED FLOATING ACTION BUTTONS (Tech Style) -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-        <button onclick="handleWhatsApp()" class="bg-[#25D366] hover:bg-[#20bd5a] text-white p-3.5 rounded-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] transition-all flex items-center justify-center group relative border border-[#25D366]/50 hover:scale-110">
-            <i data-lucide="message-circle" class="w-6 h-6"></i>
-            <span class="absolute right-full mr-4 bg-slate-800 text-white text-xs font-semibold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-slate-700 pointer-events-none">
-                Direct WhatsApp
-            </span>
-        </button>
-        <button onclick="handleCall()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black p-3.5 rounded-2xl shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-all flex items-center justify-center group relative border border-amber-400/50 hover:scale-110">
-            <i data-lucide="phone-call" class="w-6 h-6"></i>
-            <span class="absolute right-full mr-4 bg-slate-800 text-white text-xs font-semibold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-slate-700 pointer-events-none">
-                Call DealMan
-            </span>
-        </button>
-    </div>
+<!-- FUTURISTIC SCROLL BACKGROUND -->
+<div id="bgFx" aria-hidden="true">
+  <div class="grid-layer" id="fxGrid"></div>
+  <div class="orb orb1" id="fxOrb1"></div>
+  <div class="orb orb2" id="fxOrb2"></div>
+  <div class="orb orb3" id="fxOrb3"></div>
+  <div class="orb orb4" id="fxOrb4"></div>
+  <div class="line-node" style="top:22vh;left:14vw;animation-delay:0s;"></div>
+  <div class="line-node" style="top:48vh;right:18vw;animation-delay:.8s;"></div>
+  <div class="line-node" style="top:95vh;left:30vw;animation-delay:1.5s;"></div>
+  <div class="line-node" style="top:140vh;right:24vw;animation-delay:.4s;"></div>
+  <div class="line-node" style="top:210vh;left:20vw;animation-delay:1.1s;"></div>
+</div>
 
-    <!-- TECH NAVBAR -->
-    <nav class="fixed w-full z-40 top-0 glass-panel border-b-0 border-white/5 border-b">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center text-black font-tech font-bold text-xl shadow-[0_0_15px_rgba(245,158,11,0.4)]">
-                    D
-                </div>
-                <div>
-                    <h1 class="text-2xl font-tech font-bold tracking-tight text-white leading-none">DEALMAN</h1>
-                    <p class="text-[0.65rem] text-amber-500 font-medium tracking-widest uppercase mt-0.5">Target. Connect. Grow.</p>
-                </div>
-            </div>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#services" class="text-slate-300 hover:text-amber-400 transition-colors">Services</a>
-                <a href="#compare" class="text-slate-300 hover:text-amber-400 transition-colors">Why Us</a>
-                <a href="#pricing" class="text-slate-300 hover:text-amber-400 transition-colors">Pricing</a>
-                <button onclick="handleEmail()" class="text-slate-300 hover:text-amber-400 transition-colors flex items-center gap-2">
-                    <i data-lucide="mail" class="w-4 h-4"></i> Email Us
-                </button>
-            </div>
-        </div>
+<!-- LOADER -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-line"></div>
+  <div class="loader-word">DEALMAN</div>
+  <div class="loader-tag">GROW. DIGITAL. SUCCEED.</div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- SCROLL RAIL -->
+<div class="rail" aria-hidden="true"><div class="rail-fill" id="railFill"></div></div>
+
+<!-- NAV -->
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="logo" aria-label="Dealman home">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6 32 L6 8 H16 A12 12 0 0 1 16 32 H10 L24 14" stroke="url(#navGold)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 18 L28 10 L28 15 L34 15" stroke="url(#navGold)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs><linearGradient id="navGold" x1="0" y1="0" x2="40" y2="40"><stop offset="0" stop-color="#f6e2a8"/><stop offset="1" stop-color="#8a6a24"/></linearGradient></defs>
+      </svg>
+      <span><span class="d-part">DEAL</span><span class="man-part">MAN</span><span class="logo-tag">Smart Solutions. Real Results.</span></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#process" class="nav-link">Process</a>
+      <a href="#leads" class="nav-link">Leads</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
+    <a href="#contact" class="btn btn-primary nav-cta">Let's Grow</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-    <!-- BACKGROUND EFFECTS -->
-    <div class="fixed inset-0 z-[-1] tech-grid pointer-events-none"></div>
-    <div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none z-[-1]"></div>
-    <div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-amber-600/20 rounded-full blur-[120px] pointer-events-none z-[-1]"></div>
+<div id="mobileMenu" aria-hidden="true">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#work">Work</a>
+  <a href="#process">Process</a>
+  <a href="#leads">Leads</a>
+  <a href="#contact">Contact</a>
+</div>
 
-    <!-- SLIDE 1: HERO SECTION -->
-    <section id="home" class="slide-section max-w-7xl mx-auto items-center text-center pt-32">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border-amber-500/30 text-amber-400 text-sm font-semibold mb-8 animate-float">
-            <i data-lucide="target" class="w-4 h-4"></i> Premium Real Estate Lead Generation
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop" alt=""
+      onerror="this.remove()">
+    <div class="img-layer"></div>
+  </div>
+  <svg class="growth-mark" viewBox="0 0 300 300" aria-hidden="true">
+    <defs><linearGradient id="goldStroke" x1="0" y1="0" x2="300" y2="300">
+      <stop offset="0" stop-color="#f6e2a8"/><stop offset=".5" stop-color="#c9a24a"/><stop offset="1" stop-color="#8a6a24"/>
+    </linearGradient></defs>
+    <path d="M40 250 L90 190 L140 220 L200 120 L250 60"/>
+    <polygon class="chev" points="250,60 222,68 244,90"/>
+  </svg>
+  <div class="wrap hero-content">
+    <div class="hero-small">Welcome to the future of business growth</div>
+    <h1>
+      <span class="line"><b>We don't just</b></span>
+      <span class="line"><b>build digital presence.</b></span>
+      <span class="line"><b>We build</b></span>
+      <span class="line"><b class="gold">business growth.</b></span>
+    </h1>
+    <p class="hero-sub">Strategy. Design. Technology. Automation. Growth.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn">Explore Our Work</a>
+      <a href="#contact" class="btn btn-primary">Start Growing</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll to explore</span><div class="mouse-ic"></div></div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journeySection">
+  <div class="journey-track" id="journeyTrack">
+    <div class="journey-sticky">
+      <div class="journey-bg" id="journeyBg">
+        <img id="journeyImg" src="" alt="" loading="eager" onerror="this.style.opacity=0">
+        <div class="journey-wash"></div>
+        <div class="journey-tint" id="journeyTint"></div>
+      </div>
+      <div class="wrap journey-inner">
+        <div class="journey-num" id="journeyNum">01</div>
+        <h2 class="journey-title" id="journeyTitle">Idea</h2>
+      </div>
+      <ul class="journey-list" id="journeyList">
+        <li data-i="0"><span></span>Idea</li>
+        <li data-i="1"><span></span>Strategy</li>
+        <li data-i="2"><span></span>Design</li>
+        <li data-i="3"><span></span>Development</li>
+        <li data-i="4"><span></span>Automation</li>
+        <li data-i="5"><span></span>Marketing</li>
+        <li data-i="6"><span></span>Leads</li>
+        <li data-i="7"><span></span>Growth</li>
+      </ul>
+      <div class="journey-final" id="journeyFinal">
+        <h2 class="gold">DEALMAN</h2>
+        <p style="font-family:var(--font-display);letter-spacing:.2em;margin-top:14px;text-transform:uppercase;color:var(--silver);">Smart Solutions. Real Results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="eyebrow">01 / Who we are</div>
+        <h2>We turn businesses<br>into <span class="gold">digital experiences.</span></h2>
+        <p>Dealman is a modern digital growth and business solutions company focused on helping businesses build stronger digital identities, attract valuable opportunities and create scalable growth systems.</p>
+        <p>From premium websites and branding to marketing, automation and lead-generation solutions, we combine creativity, strategy and technology to help businesses move forward.</p>
+        <a href="#services" class="btn" style="margin-top:20px;">Discover Dealman</a>
+      </div>
+      <div class="about-visual reveal">
+        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="400" height="500" fill="#141417"/>
+          <g stroke="rgba(201,162,74,.35)" stroke-width="1">
+            <line x1="0" y1="125" x2="400" y2="125"/><line x1="0" y1="250" x2="400" y2="250"/><line x1="0" y1="375" x2="400" y2="375"/>
+            <line x1="100" y1="0" x2="100" y2="500"/><line x1="200" y1="0" x2="200" y2="500"/><line x1="300" y1="0" x2="300" y2="500"/>
+          </g>
+          <circle cx="200" cy="250" r="90" fill="none" stroke="url(#navGold)" stroke-width="2"/>
+          <circle cx="200" cy="250" r="60" fill="none" stroke="url(#navGold)" stroke-width="1" opacity=".6"/>
+          <circle cx="200" cy="250" r="3" fill="#eccf87"/>
+          <circle cx="120" cy="170" r="3" fill="#eccf87"/><circle cx="290" cy="200" r="3" fill="#eccf87"/>
+          <circle cx="260" cy="330" r="3" fill="#eccf87"/><circle cx="140" cy="340" r="3" fill="#eccf87"/>
+          <path d="M200 250 L120 170 M200 250 L290 200 M200 250 L260 330 M200 250 L140 340" stroke="#8a6a24" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement" id="statementSection">
+  <p data-line>Smart thinking.</p>
+  <p data-line>Premium execution.</p>
+  <p data-line>Powerful systems.</p>
+  <p data-line>Real results.</p>
+  <p class="final" data-line>This is Dealman.</p>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="eyebrow reveal">02 / What we do</div>
+    <h2 class="reveal" style="font-size:clamp(1.9rem,4.4vw,3.2rem);">Everything your business<br>needs <span class="gold">to grow.</span></h2>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="card-media img-fallback"><img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=900&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()"></div>
+        <div class="card-body"><div class="num">01</div><h3>Digital Marketing</h3><p>Strategic digital campaigns designed to improve visibility, engagement and business growth.</p><div class="arrow">Learn more →</div></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="card-media img-fallback"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()"></div>
+        <div class="card-body"><div class="num">02</div><h3>Branding</h3><p>Build powerful, memorable and premium brand identities.</p><div class="arrow">Learn more →</div></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="card-media img-fallback"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=900&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()"></div>
+        <div class="card-body"><div class="num">03</div><h3>Website Design &amp; Development</h3><p>Create modern, responsive, animated and conversion-focused websites.</p><div class="arrow">Learn more →</div></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="card-media img-fallback"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=900&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()"></div>
+        <div class="card-body"><div class="num">04</div><h3>Business Automation</h3><p>Build smarter systems and workflows that reduce manual work and improve efficiency.</p><div class="arrow">Learn more →</div></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="card-media img-fallback"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()"></div>
+        <div class="card-body"><div class="num">05</div><h3>Growth Strategy</h3><p>Create practical digital growth strategies based on business objectives.</p><div class="arrow">Learn more →</div></div>
+      </div>
+      <div class="service-card highlight reveal">
+        <div class="card-media img-fallback"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=900&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()"></div>
+        <div class="card-body"><div class="num">06</div><h3>Direct Exclusive Encrypted Leads — From Day 1</h3><p>Targeted business opportunities delivered through a secure, exclusive and structured lead-generation approach.</p><div class="arrow">Learn more →</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADS -->
+<section class="section leads" id="leads">
+  <div class="leads-media img-fallback"><img src="https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1600&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()"></div>
+  <div class="wrap">
+    <div class="eyebrow reveal">03 / Lead solutions</div>
+    <h2 class="reveal" style="font-size:clamp(2rem,6vw,4rem);">Direct. Exclusive.<br>Encrypted. <span class="gold">From Day 1.</span></h2>
+    <div class="leads-flow reveal">
+      <div class="flow-step"><div class="ic">👁</div><span>Identify</span></div>
+      <div class="flow-step"><div class="ic">🎯</div><span>Target</span></div>
+      <div class="flow-step"><div class="ic">🧬</div><span>Filter</span></div>
+      <div class="flow-step"><div class="ic">🔒</div><span>Secure</span></div>
+      <div class="flow-step"><div class="ic">📡</div><span>Deliver</span></div>
+      <div class="flow-step"><div class="ic">🤝</div><span>Connect</span></div>
+    </div>
+    <div class="leads-cta reveal">
+      <a href="#" class="btn btn-primary" id="leadsCta">Get Business Leads</a>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="eyebrow reveal">04 / Selected work</div>
+    <h2 class="reveal" style="font-size:clamp(1.9rem,4.4vw,3.2rem);">Ideas transformed<br>into <span class="gold">experiences.</span></h2>
+    <div class="filters reveal" id="filterBar"></div>
+    <div class="work-grid" id="workGrid"></div>
+  </div>
+</section>
+
+<div id="projectModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-box" style="position:relative;">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <img id="modalImg" src="" alt="">
+    <div class="modal-body">
+      <div class="cat" id="modalCat" style="font-family:var(--font-display);color:var(--gold);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;"></div>
+      <h3 id="modalTitle" style="margin-top:8px;text-transform:none;"></h3>
+      <p id="modalDesc" style="color:var(--silver);margin-top:10px;"></p>
+    </div>
+  </div>
+</div>
+
+<!-- WEBSITE SHOWCASE -->
+<section class="section" id="websites">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="reveal" style="font-size:clamp(1.9rem,5vw,3.4rem);">Websites that<br>don't just exist. <span class="gold">They perform.</span></h2>
+    <div class="device-tabs reveal" style="justify-content:center;">
+      <button class="filter-btn active" data-device="desktop">Desktop</button>
+      <button class="filter-btn" data-device="tablet">Tablet</button>
+      <button class="filter-btn" data-device="mobile">Mobile</button>
+    </div>
+    <div class="mock-wrap reveal">
+      <div class="mockup desktop" id="deviceMock">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <div class="screen">
+          <div class="fake-nav"><span>DEALMAN</span><span>MENU</span></div>
+          <div class="fake-hero"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()"><span>Responsive · Animated · Conversion-Focused<br>WhatsApp Integrated Lead Forms</span></div>
         </div>
-        
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-tech font-extrabold tracking-tight mb-6 leading-[1.1]">
-            आपकी प्रॉपर्टी,<br>
-            <span class="gold-text-gradient">सही खरीदार तक!</span>
-        </h1>
-        
-        <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-4 font-light">
-            Better Leads. <span class="font-semibold text-white">Better Deals.</span>
-        </p>
-        
-        <div class="glass-panel px-6 py-4 rounded-2xl mb-12 max-w-2xl mx-auto border-l-4 border-l-amber-500 text-left">
-            <p class="text-slate-300 text-lg md:text-xl font-medium">
-                "हम आपकी एड हर किसी को नहीं, सिर्फ उन लोगों को दिखाते हैं जो आपकी प्रॉपर्टी में सच में इंटरेस्टेड हैं!"
-            </p>
+      </div>
+    </div>
+    <a href="#contact" class="btn btn-primary reveal">Build My Website</a>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="eyebrow reveal">05 / Our process</div>
+    <h2 class="reveal" style="font-size:clamp(1.9rem,4.4vw,3.2rem);">From idea<br>to <span class="gold">impact.</span></h2>
+    <div class="process-grid">
+      <div class="process-list">
+        <div class="process-item reveal"><div class="pnum">01</div><div><h3>Discover</h3><p>Understand the business, audience and objectives.</p></div></div>
+        <div class="process-item reveal"><div class="pnum">02</div><div><h3>Strategize</h3><p>Create a focused digital growth direction.</p></div></div>
+        <div class="process-item reveal"><div class="pnum">03</div><div><h3>Design</h3><p>Transform strategy into premium visual experiences.</p></div></div>
+        <div class="process-item reveal"><div class="pnum">04</div><div><h3>Develop</h3><p>Build functional, responsive and scalable digital solutions.</p></div></div>
+        <div class="process-item reveal"><div class="pnum">05</div><div><h3>Automate</h3><p>Create smarter systems and efficient workflows.</p></div></div>
+        <div class="process-item reveal"><div class="pnum">06</div><div><h3>Launch</h3><p>Take the experience live.</p></div></div>
+        <div class="process-item reveal"><div class="pnum">07</div><div><h3>Grow</h3><p>Continue improving digital opportunities and business growth.</p></div></div>
+      </div>
+      <div class="process-visual reveal img-fallback">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=900&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section" id="why">
+  <div class="wrap">
+    <h2 class="reveal" style="font-size:clamp(1.9rem,4.4vw,3.2rem);">Built different.<br><span class="gold">Built for growth.</span></h2>
+    <div class="why-banner reveal img-fallback">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><h3>Strategy First</h3><p>We plan before we build.</p></div>
+      <div class="why-card reveal"><h3>Custom Experiences</h3><p>Every business is unique.</p></div>
+      <div class="why-card reveal"><h3>Modern Technology</h3><p>Future-ready solutions.</p></div>
+      <div class="why-card reveal"><h3>Business Focused</h3><p>We focus on real results.</p></div>
+      <div class="why-card reveal"><h3>Smart Automation</h3><p>Work smarter, not harder.</p></div>
+      <div class="why-card reveal"><h3>Growth Mindset</h3><p>We grow when you grow.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="section" id="transformation">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="reveal" style="font-size:clamp(1.9rem,4.4vw,3.2rem);">Business <span class="gold">transformation.</span></h2>
+    <p style="color:var(--silver);margin-top:10px;">Drag to compare</p>
+    <div class="ba-wrap reveal" id="baWrap">
+      <div class="ba-panel ba-before">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=900&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+        <h4>Before Dealman</h4>
+        <ul>
+          <li>Outdated Digital Presence</li>
+          <li>Generic Branding</li>
+          <li>Manual Processes</li>
+          <li>Limited Online Visibility</li>
+          <li>Unstructured Lead Flow</li>
+        </ul>
+      </div>
+      <div class="ba-after-wrap" id="baAfterWrap">
+        <div class="ba-panel ba-after">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+          <h4>After Dealman</h4>
+          <ul>
+            <li>Premium Digital Identity</li>
+            <li>Strategic Brand Experience</li>
+            <li>Smarter Automation</li>
+            <li>Professional Online Presence</li>
+            <li>Structured Growth Systems</li>
+          </ul>
         </div>
+      </div>
+      <div class="ba-handle" id="baHandle"></div>
+    </div>
+    <input type="range" min="0" max="100" value="50" class="ba-slider" id="baSlider" aria-label="Compare before and after">
+  </div>
+</section>
 
-        <div class="flex flex-col sm:flex-row gap-5">
-            <button onclick="handleWhatsApp()" class="bg-white text-black hover:bg-slate-200 px-8 py-4 rounded-xl font-tech font-bold text-lg flex items-center justify-center gap-2 transition-all">
-                <i data-lucide="message-square" class="w-5 h-5"></i>
-                Start Getting Leads
-            </button>
-            <button onclick="handleCall()" class="glass-panel hover:bg-white/10 text-white px-8 py-4 rounded-xl font-tech font-bold text-lg flex items-center justify-center gap-2 transition-all">
-                <i data-lucide="phone" class="w-5 h-5"></i>
-                Talk to an Expert
-            </button>
+<!-- CLIENTS -->
+<section class="section" id="clients">
+  <div class="wrap">
+    <h2 class="reveal" style="font-size:clamp(1.8rem,4vw,2.8rem);text-align:center;">Businesses we help <span class="gold">grow.</span></h2>
+    <div class="clients-grid" id="clientsGrid"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-full reveal">
+  <div class="cta-media img-fallback"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()"></div>
+  <div class="wrap" style="display:flex;flex-direction:column;align-items:center;">
+    <h2>Your business<br><span class="gold">deserves more.</span></h2>
+    <p>Let's build the digital experience, systems and growth strategy your business needs.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn btn-primary">Start A Project</a>
+      <a href="#" class="btn" id="ctaWhatsapp">WhatsApp Dealman</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="eyebrow">Contact</div>
+        <h2>Let's build<br>what's <span class="gold">next.</span></h2>
+        <div class="contact-line"><span class="lbl">Brand</span><span>Dealman</span></div>
+        <div class="contact-line"><span class="lbl">Proprietor</span><span>Aayushmaan Shukla</span></div>
+        <div class="contact-line"><span class="lbl">WhatsApp</span><span>+91 9630877507</span></div>
+        <div class="contact-actions">
+          <a href="tel:+919630877507" class="btn">Call Now</a>
+          <a href="https://wa.me/919630877507?text=Hello%20Dealman%2C%20I%20am%20interested%20in%20your%20business%20growth%20and%20digital%20services.%20I%20would%20like%20to%20discuss%20my%20requirements." target="_blank" rel="noopener" class="btn btn-primary">WhatsApp</a>
         </div>
-    </section>
-
-    <!-- SLIDE 2: CORE PILLARS -->
-    <section class="slide-section max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-tech font-bold mb-4">The <span class="gold-text-gradient">DEALMAN</span> Advantage</h2>
-            <p class="text-slate-400 text-lg">We optimize every rupee spent for maximum conversion.</p>
+      </div>
+      <form id="enquiryForm" class="reveal" novalidate>
+        <div><label for="fname">Full Name</label><input type="text" id="fname" required></div>
+        <div><label for="bname">Business Name</label><input type="text" id="bname" required></div>
+        <div><label for="phone">Phone Number</label><input type="tel" id="phone" required></div>
+        <div><label for="service">Service Required</label>
+          <select id="service" required>
+            <option value="">Select a service</option>
+            <option>Digital Marketing</option>
+            <option>Branding</option>
+            <option>Website Development</option>
+            <option>Business Automation</option>
+            <option>Growth Strategy</option>
+            <option>Direct Exclusive Leads</option>
+            <option>Other</option>
+          </select>
         </div>
+        <div class="full"><label for="budget">Project Budget</label><input type="text" id="budget" placeholder="e.g. ₹10,000 – ₹25,000"></div>
+        <div class="full"><label for="message">Message</label><textarea id="message" rows="4"></textarea></div>
+        <div class="form-msg" id="formMsg" role="status"></div>
+        <div class="full"><button type="submit" class="btn btn-primary">Send Enquiry via WhatsApp</button></div>
+      </form>
+    </div>
+  </div>
+</section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Card 1 -->
-            <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group gold-border-glow">
-                <div class="w-14 h-14 bg-red-500/10 rounded-2xl flex items-center justify-center mb-6 border border-red-500/20 group-hover:scale-110 transition-transform">
-                    <i data-lucide="crosshair" class="w-8 h-8 text-red-500"></i>
-                </div>
-                <h3 class="text-xl font-tech font-bold mb-3 text-white">Targeted Audience</h3>
-                <p class="text-slate-400 font-medium">सिर्फ सीरियस खरीदार & इन्वेस्टर। No window shoppers.</p>
-            </div>
-            
-            <!-- Card 2 -->
-            <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group gold-border-glow">
-                <div class="w-14 h-14 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6 border border-green-500/20 group-hover:scale-110 transition-transform">
-                    <i data-lucide="message-circle" class="w-8 h-8 text-green-500"></i>
-                </div>
-                <h3 class="text-xl font-tech font-bold mb-3 text-white">Direct Leads</h3>
-                <p class="text-slate-400 font-medium">सीधा WhatsApp पर मैसेज। Instant connection with prospects.</p>
-            </div>
+</main>
 
-            <!-- Card 3 -->
-            <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group gold-border-glow">
-                <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20 group-hover:scale-110 transition-transform">
-                    <i data-lucide="shield-check" class="w-8 h-8 text-blue-500"></i>
-                </div>
-                <h3 class="text-xl font-tech font-bold mb-3 text-white">Budget Saver</h3>
-                <p class="text-slate-400 font-medium">बजट की बचत। बजट तभी खर्च जब असली रिजल्ट मिले।</p>
-            </div>
+<a href="https://wa.me/919630877507?text=Hello%20Dealman%2C%20I%20am%20interested%20in%20your%20business%20growth%20and%20digital%20services.%20I%20would%20like%20to%20discuss%20my%20requirements." target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.6 4.37 1.65 6.2L3.2 28.8l6.77-1.78a12.74 12.74 0 0 0 6.03 1.54h.01c7.06 0 12.8-5.74 12.8-12.8s-5.74-12.36-12.81-12.36zm7.49 18.3c-.32.9-1.6 1.66-2.6 1.87-.7.15-1.6.27-4.65-.99-3.9-1.6-6.4-5.53-6.6-5.79-.19-.26-1.58-2.1-1.58-4.01s1.01-2.85 1.37-3.24c.36-.39.78-.49 1.04-.49s.52 0 .75.01c.24.01.56-.09.87.67.32.77 1.09 2.66 1.19 2.85.1.19.16.42.03.68-.13.26-.19.42-.38.65-.19.23-.4.51-.57.68-.19.19-.39.4-.17.78.23.39 1 1.65 2.15 2.67 1.48 1.32 2.72 1.73 3.11 1.92.39.19.61.16.84-.1.23-.26.97-1.13 1.23-1.52.26-.39.52-.32.87-.19.35.13 2.24 1.06 2.63 1.25.39.19.65.29.74.45.1.16.1.9-.22 1.8z"/></svg>
+</a>
 
-            <!-- Card 4 -->
-            <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group gold-border-glow">
-                <div class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/20 group-hover:scale-110 transition-transform">
-                    <i data-lucide="bar-chart-3" class="w-8 h-8 text-amber-500"></i>
-                </div>
-                <h3 class="text-xl font-tech font-bold mb-3 text-white">Quality Leads</h3>
-                <p class="text-slate-400 font-medium">ज्यादा इन्क्वायरी, ज्यादा कन्वर्जन। Maximum ROI on campaigns.</p>
-            </div>
-        </div>
-    </section>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Dealman</h4>
+        <p style="font-family:var(--font-display);letter-spacing:.05em;text-transform:uppercase;">Grow. Digital. Succeed.</p>
+        <p style="color:var(--silver);margin-top:10px;font-family:var(--font-accent);font-style:italic;">Smart solutions. Real results.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li>Digital Marketing</li>
+          <li>Branding</li>
+          <li>Website Development</li>
+          <li>Business Automation</li>
+          <li>Growth Strategy</li>
+          <li>Exclusive Lead Solutions</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Aayushmaan Shukla</li>
+          <li>+91 9630877507</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 DEALMAN. All Rights Reserved.</span>
+      <button id="backToTop">Back to top</button>
+    </div>
+  </div>
+</footer>
 
-    <!-- SLIDE 3: COMPLETE SYSTEM (SERVICES) -->
-    <section id="services" class="slide-section max-w-7xl mx-auto">
-        <div class="flex flex-col lg:flex-row items-center gap-12">
-            <div class="w-full lg:w-1/3">
-                <h2 class="text-3xl md:text-5xl font-tech font-bold mb-6 leading-tight">हमारी सर्विस<br><span class="gold-text-gradient">आपकी ग्रोथ का पूरा सिस्टम</span></h2>
-                <p class="text-slate-400 text-lg mb-8">We provide an end-to-end digital infrastructure tailored specifically for the real estate market.</p>
-                <button onclick="handleWhatsApp()" class="hidden lg:inline-flex bg-gradient-to-r from-amber-500 to-amber-600 text-black px-6 py-3 rounded-lg font-tech font-bold text-sm items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:scale-105 transition-transform">
-                    Get the Complete System <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </button>
-            </div>
+<script>
+(function(){
+"use strict";
 
-            <div class="w-full lg:w-2/3 glass-panel p-8 rounded-3xl border-slate-700">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                    
-                    <!-- Digital Setup -->
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">Google Search & Maps Listing</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">Professional Static Website</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">Website to Google Maps Linking</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">Instagram & Facebook Profiles</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">WhatsApp Business Integration</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">Basic SEO Optimization</span>
-                        </div>
-                    </div>
+/* ---------- LOADER ---------- */
+window.addEventListener("load",function(){
+  setTimeout(function(){document.getElementById("loader").classList.add("done");},1500);
+});
+setTimeout(function(){document.getElementById("loader").classList.add("done");},3500);
 
-                    <!-- Marketing & Ads -->
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-400 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">Unlimited Creative Designs</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-400 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">Unlimited Promotional Posts</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-400 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">Meta Ads Setup & Management</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-400 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">Hyper-Targeted Ads (Location/Age)</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-400 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">Direct WhatsApp Lead Campaigns</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-400 shrink-0"></i>
-                            <span class="text-slate-200 font-medium">Monthly Performance Reports</span>
-                        </div>
-                    </div>
+/* ---------- CURSOR ---------- */
+var isTouch = matchMedia("(pointer:coarse)").matches;
+if(isTouch){document.body.classList.add("touch");}
+else{
+  var dot=document.getElementById("cursorDot"), ring=document.getElementById("cursorRing");
+  var mx=0,my=0,rx=0,ry=0;
+  window.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+"px";dot.style.top=my+"px";});
+  function loop(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(loop);}
+  loop();
+  document.querySelectorAll("a,button,.filter-btn,.work-card").forEach(function(el){
+    el.addEventListener("mouseenter",function(){ring.classList.add("magnetic");});
+    el.addEventListener("mouseleave",function(){ring.classList.remove("magnetic");});
+  });
+}
 
-                </div>
-            </div>
-        </div>
-    </section>
+/* ---------- NAV ---------- */
+var siteNav=document.getElementById("siteNav");
+var railFill=document.getElementById("railFill");
+window.addEventListener("scroll",function(){
+  siteNav.classList.toggle("scrolled",window.scrollY>40);
+  var h=document.documentElement;
+  var pct=(h.scrollTop||document.body.scrollTop)/((h.scrollHeight||document.body.scrollHeight)-h.clientHeight)*100;
+  railFill.style.height=pct+"%";
+},{passive:true});
 
-    <!-- SLIDE 4: COMPARISON -->
-    <section id="compare" class="slide-section max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-tech font-bold mb-4">Why DealMan Dominates</h2>
-            <p class="text-slate-400 text-lg">Don't waste your budget on outdated methods.</p>
-        </div>
+var hbtn=document.getElementById("hamburgerBtn"), mmenu=document.getElementById("mobileMenu");
+hbtn.addEventListener("click",function(){
+  var open=mmenu.classList.toggle("open");
+  hbtn.classList.toggle("open",open);
+  hbtn.setAttribute("aria-expanded",open);
+  mmenu.setAttribute("aria-hidden",!open);
+});
+document.querySelectorAll("#mobileMenu a, nav.links a").forEach(function(a){
+  a.addEventListener("click",function(){
+    mmenu.classList.remove("open");hbtn.classList.remove("open");hbtn.setAttribute("aria-expanded","false");
+  });
+});
 
-        <div class="flex flex-col md:flex-row gap-8 lg:gap-12">
-            
-            <!-- Other Platforms -->
-            <div class="flex-1 glass-panel p-8 rounded-3xl border border-red-500/20 bg-gradient-to-b from-red-500/5 to-transparent relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-red-500/20 text-red-400 text-xs font-bold px-4 py-1 rounded-bl-xl uppercase tracking-wider">The Old Way</div>
-                <h3 class="text-2xl font-tech font-bold text-white mb-8 border-b border-red-500/20 pb-4">Other Platforms</h3>
-                <ul class="space-y-5">
-                    <li class="flex items-center gap-4 text-slate-400">
-                        <div class="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center shrink-0"><i data-lucide="x" class="w-4 h-4 text-red-500"></i></div>
-                        Mass Audience Targeting (Junk Leads)
-                    </li>
-                    <li class="flex items-center gap-4 text-slate-400">
-                        <div class="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center shrink-0"><i data-lucide="x" class="w-4 h-4 text-red-500"></i></div>
-                        Leads Via Forms (Low Response Rate)
-                    </li>
-                    <li class="flex items-center gap-4 text-slate-400">
-                        <div class="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center shrink-0"><i data-lucide="x" class="w-4 h-4 text-red-500"></i></div>
-                        High Budget Waste
-                    </li>
-                    <li class="flex items-center gap-4 text-slate-400">
-                        <div class="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center shrink-0"><i data-lucide="x" class="w-4 h-4 text-red-500"></i></div>
-                        No Transparency / Unclear Results
-                    </li>
-                    <li class="flex items-center gap-4 text-slate-400">
-                        <div class="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center shrink-0"><i data-lucide="x" class="w-4 h-4 text-red-500"></i></div>
-                        Low ROI
-                    </li>
-                </ul>
-            </div>
+/* scrollspy */
+var navLinkEls=document.querySelectorAll(".nav-link");
+var sectionIds=["home","about","services","work","process","leads","contact"];
+var spyObserver=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      navLinkEls.forEach(function(l){l.classList.remove("active");});
+      var link=document.querySelector('.nav-link[href="#'+e.target.id+'"]');
+      if(link)link.classList.add("active");
+    }
+  });
+},{rootMargin:"-45% 0px -45% 0px"});
+sectionIds.forEach(function(id){var el=document.getElementById(id);if(el)spyObserver.observe(el);});
 
-            <!-- DealMan (Highlight) -->
-            <div class="flex-1 glass-panel p-8 rounded-3xl border border-amber-500/50 bg-gradient-to-b from-amber-500/10 to-transparent relative shadow-[0_0_30px_rgba(245,158,11,0.15)] transform md:-translate-y-4">
-                <div class="absolute top-0 right-0 bg-amber-500 text-black text-xs font-bold px-4 py-1 rounded-bl-xl uppercase tracking-wider">The DealMan Way</div>
-                <h3 class="text-2xl font-tech font-bold text-amber-400 mb-8 border-b border-amber-500/20 pb-4">DEALMAN System</h3>
-                <ul class="space-y-5">
-                    <li class="flex items-center gap-4 text-white font-medium">
-                        <div class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(245,158,11,0.5)]"><i data-lucide="check" class="w-4 h-4 text-black"></i></div>
-                        Highly Targeted Audience
-                    </li>
-                    <li class="flex items-center gap-4 text-white font-medium">
-                        <div class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(245,158,11,0.5)]"><i data-lucide="check" class="w-4 h-4 text-black"></i></div>
-                        WhatsApp Direct Leads (Instant Chat)
-                    </li>
-                    <li class="flex items-center gap-4 text-white font-medium">
-                        <div class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(245,158,11,0.5)]"><i data-lucide="check" class="w-4 h-4 text-black"></i></div>
-                        Quality Over Quantity
-                    </li>
-                    <li class="flex items-center gap-4 text-white font-medium">
-                        <div class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(245,158,11,0.5)]"><i data-lucide="check" class="w-4 h-4 text-black"></i></div>
-                        100% Transparent Process
-                    </li>
-                    <li class="flex items-center gap-4 text-white font-medium">
-                        <div class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(245,158,11,0.5)]"><i data-lucide="check" class="w-4 h-4 text-black"></i></div>
-                        Budget Used ONLY on Interested People
-                    </li>
-                </ul>
-            </div>
+/* ---------- FUTURISTIC BACKGROUND PARALLAX ---------- */
+var fxGrid=document.getElementById("fxGrid");
+var fxOrb1=document.getElementById("fxOrb1"),fxOrb2=document.getElementById("fxOrb2"),
+    fxOrb3=document.getElementById("fxOrb3"),fxOrb4=document.getElementById("fxOrb4");
+var fxTicking=false;
+function updateFx(){
+  var sy=window.scrollY||document.documentElement.scrollTop||0;
+  fxGrid.style.transform="translate3d(0,"+(-sy*0.04)+"px,0) rotate("+(sy*0.005)+"deg)";
+  fxOrb1.style.transform="translate3d("+(sy*0.03)+"px,"+(-sy*0.09)+"px,0)";
+  fxOrb2.style.transform="translate3d("+(-sy*0.05)+"px,"+(-sy*0.14)+"px,0)";
+  fxOrb3.style.transform="translate3d("+(sy*0.04)+"px,"+(-sy*0.10)+"px,0)";
+  fxOrb4.style.transform="translate3d("+(-sy*0.03)+"px,"+(-sy*0.12)+"px,0)";
+  fxTicking=false;
+}
+window.addEventListener("scroll",function(){
+  if(!fxTicking){requestAnimationFrame(updateFx);fxTicking=true;}
+},{passive:true});
+updateFx();
 
-        </div>
-    </section>
+/* ---------- REVEAL ON SCROLL ---------- */
+var revealObserver=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");revealObserver.unobserve(e.target);}});
+},{threshold:.15});
+document.querySelectorAll(".reveal").forEach(function(el){revealObserver.observe(el);});
 
-    <!-- SLIDE 5: PROCESS & PRICING -->
-    <section id="pricing" class="slide-section max-w-7xl mx-auto">
-        
-        <!-- Process Flow -->
-        <div class="mb-20">
-            <h2 class="text-center text-3xl font-tech font-bold mb-10 text-white">हमारा आसान प्रोसेस (Simple Process)</h2>
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4 relative">
-                <!-- Connecting Line Desktop -->
-                <div class="hidden md:block absolute top-10 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-slate-800 via-amber-500/50 to-slate-800 z-0"></div>
-                
-                <!-- Step 1 -->
-                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/4">
-                    <div class="w-20 h-20 rounded-full glass-panel border border-amber-500/50 flex items-center justify-center mb-4 text-amber-400 bg-slate-900 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-                        <i data-lucide="users" class="w-8 h-8"></i>
-                    </div>
-                    <span class="w-6 h-6 rounded-full bg-amber-500 text-black text-xs font-bold flex items-center justify-center -mt-8 mb-4 border-[3px] border-slate-900 relative z-20">1</span>
-                    <p class="font-bold text-white mb-1">आपके गोल्स समझते हैं</p>
-                    <p class="text-xs text-slate-400">Understand your specific needs</p>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/4">
-                    <div class="w-20 h-20 rounded-full glass-panel border border-amber-500/50 flex items-center justify-center mb-4 text-amber-400 bg-slate-900 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-                        <i data-lucide="crosshair" class="w-8 h-8"></i>
-                    </div>
-                    <span class="w-6 h-6 rounded-full bg-amber-500 text-black text-xs font-bold flex items-center justify-center -mt-8 mb-4 border-[3px] border-slate-900 relative z-20">2</span>
-                    <p class="font-bold text-white mb-1">सही ऑडियंस पर टारगेट</p>
-                    <p class="text-xs text-slate-400">Pinpoint accurate targeting</p>
-                </div>
+/* ---------- JOURNEY SCROLL STORY ---------- */
+var journeyTrack=document.getElementById("journeyTrack");
+var journeyNum=document.getElementById("journeyNum");
+var journeyTitle=document.getElementById("journeyTitle");
+var journeyBg=document.getElementById("journeyBg");
+var journeyList=document.querySelectorAll("#journeyList li");
+var journeyFinal=document.getElementById("journeyFinal");
+var journeyImg=document.getElementById("journeyImg");
+var journeyTint=document.getElementById("journeyTint");
+var journeyLastIdx=-1;
+var stages=[
+  {t:"Idea",img:"https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1400&auto=format&fit=crop",c:"radial-gradient(circle at 30% 30%,rgba(201,162,74,.3),transparent 65%)"},
+  {t:"Strategy",img:"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1400&auto=format&fit=crop",c:"radial-gradient(circle at 70% 40%,rgba(201,162,74,.32),transparent 65%)"},
+  {t:"Design",img:"https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1400&auto=format&fit=crop",c:"radial-gradient(circle at 40% 60%,rgba(230,205,140,.32),transparent 65%)"},
+  {t:"Development",img:"https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1400&auto=format&fit=crop",c:"radial-gradient(circle at 60% 30%,rgba(201,162,74,.34),transparent 65%)"},
+  {t:"Automation",img:"https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=1400&auto=format&fit=crop",c:"radial-gradient(circle at 50% 50%,rgba(201,162,74,.36),transparent 65%)"},
+  {t:"Marketing",img:"https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=1400&auto=format&fit=crop",c:"radial-gradient(circle at 30% 70%,rgba(230,205,140,.32),transparent 65%)"},
+  {t:"Leads",img:"https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1400&auto=format&fit=crop",c:"radial-gradient(circle at 65% 65%,rgba(201,162,74,.36),transparent 65%)"},
+  {t:"Growth",img:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1400&auto=format&fit=crop",c:"radial-gradient(circle at 50% 20%,rgba(230,205,140,.4),transparent 65%)"}
+];
+function updateJourney(){
+  var rect=journeyTrack.getBoundingClientRect();
+  var total=rect.height-window.innerHeight;
+  var scrolled=Math.min(Math.max(-rect.top,0),total);
+  var progress=total>0?scrolled/total:0;
+  var stageCount=stages.length;
+  var idx=Math.min(Math.floor(progress*stageCount),stageCount-1);
+  if(progress>=0.97){
+    journeyFinal.classList.add("show");
+  }else{
+    journeyFinal.classList.remove("show");
+  }
+  journeyNum.textContent=String(idx+1).padStart(2,"0");
+  journeyTitle.textContent=stages[idx].t;
+  journeyTint.style.background=stages[idx].c;
+  if(idx!==journeyLastIdx){
+    journeyImg.style.opacity=0;
+    var nextSrc=stages[idx].img;
+    setTimeout(function(){journeyImg.src=nextSrc;journeyImg.style.opacity=.62;},250);
+    journeyLastIdx=idx;
+  }
+  journeyList.forEach(function(li){li.classList.toggle("active",Number(li.dataset.i)===idx);});
+}
+window.addEventListener("scroll",updateJourney,{passive:true});
+updateJourney();
 
-                <!-- Step 3 -->
-                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/4">
-                    <div class="w-20 h-20 rounded-full glass-panel border border-amber-500/50 flex items-center justify-center mb-4 text-amber-400 bg-slate-900 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-                        <i data-lucide="smartphone" class="w-8 h-8"></i>
-                    </div>
-                    <span class="w-6 h-6 rounded-full bg-amber-500 text-black text-xs font-bold flex items-center justify-center -mt-8 mb-4 border-[3px] border-slate-900 relative z-20">3</span>
-                    <p class="font-bold text-white mb-1">सीधा WhatsApp पर मैसेज</p>
-                    <p class="text-xs text-slate-400">Direct instant communication</p>
-                </div>
+/* ---------- BRAND STATEMENT ---------- */
+var statementLines=document.querySelectorAll("#statementSection [data-line]");
+var stObserver=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");}else{e.target.classList.remove("visible");}});
+},{threshold:.6});
+statementLines.forEach(function(l){stObserver.observe(l);});
 
-                <!-- Step 4 -->
-                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/4">
-                    <div class="w-20 h-20 rounded-full glass-panel border border-amber-500/50 flex items-center justify-center mb-4 text-amber-400 bg-slate-900 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-                        <i data-lucide="trending-up" class="w-8 h-8"></i>
-                    </div>
-                    <span class="w-6 h-6 rounded-full bg-amber-500 text-black text-xs font-bold flex items-center justify-center -mt-8 mb-4 border-[3px] border-slate-900 relative z-20">4</span>
-                    <p class="font-bold text-white mb-1">क्वालिटी लीड्स और ज्यादा डील्स</p>
-                    <p class="text-xs text-slate-400">High conversion & closures</p>
-                </div>
-            </div>
-        </div>
+/* ---------- PORTFOLIO DATA (single source array) ---------- */
+const portfolioProjects = [
+  {title:"Premium Real Estate Experience",category:"Real Estate",description:"A cinematic property showcase built to present listings with clarity and premium visual presentation.",image:"https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=900&auto=format&fit=crop",size:"large"},
+  {title:"Automotive Digital Platform",category:"Automobile",description:"A performance-driven digital platform designed for automobile showcase and lead capture.",image:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=900&auto=format&fit=crop",size:"small"},
+  {title:"Luxury Interior Showcase",category:"Interior & Modular Kitchen",description:"An elegant visual showcase built for modular kitchen and interior design presentation.",image:"https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=900&auto=format&fit=crop",size:"small"},
+  {title:"Business Growth System",category:"Business Websites",description:"A structured business website designed around clarity, trust and conversion.",image:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop",size:"large"},
+  {title:"Digital Brand Experience",category:"Branding",description:"A complete brand identity system built for premium market positioning.",image:"https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop",size:"small"},
+  {title:"Automation Workflow",category:"Automation",description:"A workflow automation system designed to reduce manual work and improve efficiency.",image:"https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=900&auto=format&fit=crop",size:"small"},
+  {title:"Targeted Growth Campaign",category:"Digital Marketing",description:"A structured digital marketing approach focused on visibility and qualified engagement.",image:"https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=900&auto=format&fit=crop",size:"large"}
+];
 
-        <!-- Pricing Card -->
-        <div class="max-w-3xl mx-auto glass-panel p-1 rounded-[2.5rem] bg-gradient-to-br from-amber-400/40 via-transparent to-amber-600/40">
-            <div class="bg-[#020617] p-8 md:p-12 rounded-[2.4rem] text-center relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent pointer-events-none"></div>
-                
-                <h3 class="text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 inline-block px-4 py-1 bg-amber-500/10 rounded-full">मंथली सर्विस फीस (Monthly Service Fee)</h3>
-                
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <span class="text-4xl md:text-6xl font-tech font-extrabold text-white">₹6,000</span>
-                    <span class="text-2xl md:text-4xl font-tech font-bold text-slate-500">-</span>
-                    <span class="text-4xl md:text-6xl font-tech font-extrabold text-white">₹10,000</span>
-                </div>
-                <p class="text-slate-400 font-medium mb-8">प्रति माह (Per Month)</p>
+const clientsData = [
+  {name:"Your Brand Here"},{name:"Your Brand Here"},{name:"Your Brand Here"},{name:"Your Brand Here"},
+  {name:"Your Brand Here"},{name:"Your Brand Here"},{name:"Your Brand Here"},{name:"Your Brand Here"}
+];
 
-                <div class="inline-flex items-center gap-3 bg-slate-800/80 border border-slate-700 px-6 py-4 rounded-2xl mb-8">
-                    <i data-lucide="megaphone" class="w-6 h-6 text-amber-500"></i>
-                    <div class="text-left">
-                        <p class="text-white font-bold text-sm">Ad Budget Separate</p>
-                        <p class="text-slate-400 text-xs">क्लाइंट अलग से प्रदान करेंगे</p>
-                    </div>
-                </div>
+var workGrid=document.getElementById("workGrid");
+var filterBar=document.getElementById("filterBar");
+var categories=["All"].concat(Array.from(new Set(portfolioProjects.map(p=>p.category))));
+categories.forEach(function(cat,i){
+  var b=document.createElement("button");
+  b.className="filter-btn"+(i===0?" active":"");
+  b.textContent=cat;
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".filter-btn").forEach(function(x){x.classList.remove("active");});
+    b.classList.add("active");
+    renderWork(cat);
+  });
+  filterBar.appendChild(b);
+});
 
-                <div>
-                    <button onclick="handleWhatsApp()" class="w-full sm:w-auto bg-white text-black hover:bg-slate-200 px-10 py-4 rounded-xl font-tech font-bold text-lg transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105">
-                        Claim Your Strategy Session
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+function renderWork(filter){
+  workGrid.innerHTML="";
+  portfolioProjects.filter(function(p){return filter==="All"||p.category===filter;}).forEach(function(p){
+    var card=document.createElement("div");
+    card.className="work-card "+(p.size||"");
+    card.innerHTML=
+      '<div class="thumb img-fallback"><img src="'+p.image+'" alt="'+p.title+'" loading="lazy" onerror="this.remove();this.parentElement.classList.add(\'img-fallback\')"><div class="veil"></div></div>'+
+      '<div class="info"><div class="cat">'+p.category+'</div><h4>'+p.title+'</h4><p class="desc">'+p.description+'</p><div class="view">View Experience →</div></div>';
+    card.addEventListener("click",function(){openModal(p);});
+    workGrid.appendChild(card);
+  });
+}
+renderWork("All");
 
-    <!-- SLIDE 6: CONTACT & FOOTER -->
-    <section class="slide-section min-h-[70vh] max-w-7xl mx-auto flex flex-col justify-end pb-10">
-        <div class="glass-panel border-t border-white/10 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden bg-gradient-to-b from-transparent to-slate-900/80">
-            <div class="absolute -top-40 -right-40 w-80 h-80 bg-amber-600/20 rounded-full blur-[100px]"></div>
-            
-            <h2 class="text-2xl md:text-3xl text-slate-400 font-medium mb-4">Ready to Grow Your Real Estate Business?</h2>
-            <h3 class="text-4xl md:text-6xl font-tech font-extrabold gold-text-gradient mb-10 tracking-tight">Contact DealMan</h3>
-            
-            <!-- Huge Phone Number CTA -->
-            <button onclick="handleCall()" class="text-5xl md:text-8xl font-tech font-black text-white hover:text-amber-400 transition-colors tracking-tighter drop-shadow-2xl mb-12 block mx-auto">
-                9630877507
-            </button>
-            
-            <div class="flex flex-wrap justify-center gap-6 mb-12">
-                <button onclick="handleEmail()" class="flex items-center gap-3 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 px-6 py-3 rounded-full text-slate-300 hover:text-white transition-all">
-                    <i data-lucide="mail" class="w-5 h-5 text-amber-500"></i>
-                    thedealman2026@gmail.com
-                </button>
-                <a href="https://www.dealman.in" target="_blank" class="flex items-center gap-3 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 px-6 py-3 rounded-full text-slate-300 hover:text-white transition-all">
-                    <i data-lucide="globe" class="w-5 h-5 text-amber-500"></i>
-                    www.dealman.in
-                </a>
-            </div>
-            
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-2">
-                    <div class="w-6 h-6 bg-amber-500 rounded flex items-center justify-center text-black font-tech font-bold text-xs">D</div>
-                    <span class="text-slate-400 font-medium text-sm">© 2026 DEALMAN. All rights reserved.</span>
-                </div>
-                <div class="flex gap-4 text-sm text-slate-500">
-                    Target. Connect. Grow.
-                </div>
-            </div>
-        </div>
-    </section>
+var modal=document.getElementById("projectModal");
+function openModal(p){
+  document.getElementById("modalImg").src=p.image;
+  document.getElementById("modalImg").alt=p.title;
+  document.getElementById("modalImg").onerror=function(){this.style.display="none";};
+  document.getElementById("modalCat").textContent=p.category;
+  document.getElementById("modalTitle").textContent=p.title;
+  document.getElementById("modalDesc").textContent=p.description;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden","false");
+}
+document.getElementById("modalClose").addEventListener("click",closeModal);
+modal.addEventListener("click",function(e){if(e.target===modal)closeModal();});
+function closeModal(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");}
 
-    <!-- Logic for Actions -->
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+var clientsGrid=document.getElementById("clientsGrid");
+clientsData.forEach(function(c){
+  var d=document.createElement("div");
+  d.className="client-card";
+  d.textContent=c.name;
+  clientsGrid.appendChild(d);
+});
 
-        // Contact Information
-        const phoneNumber = "9630877507";
-        const emailAddress = "thedealman2026@gmail.com";
-        const whatsappNumber = "919630877507"; // Format for WhatsApp API with Country Code (91 for India)
-        const whatsappMessage = "Hello DealMan, I am interested in your real estate lead generation and digital marketing services. Let's connect!";
+/* ---------- DEVICE MOCKUP TABS ---------- */
+document.querySelectorAll("[data-device]").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    document.querySelectorAll("[data-device]").forEach(function(b){b.classList.remove("active");});
+    btn.classList.add("active");
+    var mock=document.getElementById("deviceMock");
+    mock.className="mockup "+btn.dataset.device;
+  });
+});
 
-        // Click Handlers
-        function handleCall() {
-            window.location.href = `tel:${phoneNumber}`;
-        }
+/* ---------- BEFORE / AFTER SLIDER ---------- */
+var baSlider=document.getElementById("baSlider");
+var baAfterWrap=document.getElementById("baAfterWrap");
+var baHandle=document.getElementById("baHandle");
+function setBa(val){
+  baAfterWrap.style.clipPath="inset(0 "+(100-val)+"% 0 0)";
+  baHandle.style.left=val+"%";
+}
+baSlider.addEventListener("input",function(){setBa(baSlider.value);});
+setBa(50);
 
-        function handleWhatsApp() {
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-        }
+/* ---------- LEADS CTA / CTA WHATSAPP ---------- */
+var waLink="https://wa.me/919630877507?text=";
+document.getElementById("leadsCta").addEventListener("click",function(e){
+  e.preventDefault();
+  window.open(waLink+encodeURIComponent("Hello Dealman, I would like to know more about your Direct Exclusive Encrypted Leads service."),"_blank");
+});
+document.getElementById("ctaWhatsapp").addEventListener("click",function(e){
+  e.preventDefault();
+  window.open(waLink+encodeURIComponent("Hello Dealman, I am interested in your business growth and digital services. I would like to discuss my requirements."),"_blank");
+});
 
-        function handleEmail() {
-            window.location.href = `mailto:${emailAddress}?subject=Inquiry for Lead Generation Services`;
-        }
-    </script>
+/* ---------- ENQUIRY FORM ---------- */
+var form=document.getElementById("enquiryForm");
+var formMsg=document.getElementById("formMsg");
+form.addEventListener("submit",function(e){
+  e.preventDefault();
+  var fname=document.getElementById("fname").value.trim();
+  var bname=document.getElementById("bname").value.trim();
+  var phone=document.getElementById("phone").value.trim();
+  var service=document.getElementById("service").value;
+  var budget=document.getElementById("budget").value.trim();
+  var message=document.getElementById("message").value.trim();
+
+  if(!fname||!bname||!phone||!service){
+    formMsg.textContent="Please fill in all required fields (name, business, phone, service).";
+    formMsg.style.color="#e08a8a";
+    return;
+  }
+  if(!/^[0-9+\-\s()]{7,16}$/.test(phone)){
+    formMsg.textContent="Please enter a valid phone number.";
+    formMsg.style.color="#e08a8a";
+    return;
+  }
+
+  var text="New Enquiry via Dealman Website%0A"+
+    "Name: "+fname+"%0A"+
+    "Business: "+bname+"%0A"+
+    "Phone: "+phone+"%0A"+
+    "Service: "+service+"%0A"+
+    (budget?("Budget: "+budget+"%0A"):"")+
+    (message?("Message: "+message):"");
+
+  formMsg.style.color="var(--gold-light)";
+  formMsg.textContent="Opening WhatsApp with your enquiry...";
+  window.open(waLink+encodeURIComponent(decodeURIComponent(text.replace(/%0A/g,"\n"))),"_blank");
+  form.reset();
+});
+
+/* ---------- BACK TO TOP ---------- */
+document.getElementById("backToTop").addEventListener("click",function(){
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+})();
+</script>
 </body>
 </html>
